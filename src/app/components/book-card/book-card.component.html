@@ -1,0 +1,15 @@
+<div class="book-cards-wrapper">
+  <a
+    *ngFor="let book of booksData.results.books"
+    [href]="book.title"
+    class="book-card-container"
+  >
+    <img [src]="book.book_image" [alt]="book.title" />
+    <div class="book-info">
+      <h2 class="book-card-title">{{ book.title }}</h2>
+      <p class="book-card-description">{{ book.description }}</p>
+    </div>
+  </a>
+</div>
+
+<!-- *ngFor="let book of booksData.results.books"  -->
