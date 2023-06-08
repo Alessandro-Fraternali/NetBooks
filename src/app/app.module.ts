@@ -8,6 +8,7 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { BookPageComponent } from './pages/book-page/book-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
+import { HousingLocationComponent } from './components/housing-location/housing-location.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
     HomepageComponent,
     BookPageComponent,
     HeaderComponent,
+    HousingLocationComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { BookCard } from 'src/app/interfaces/housinglocation';
 import { BestSellersHistoryService } from 'src/app/services/best-sellers-history.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { BestSellersHistoryService } from 'src/app/services/best-sellers-history
   styleUrls: ['./book-card.component.scss'],
 })
 export class BookCardComponent {
+  @Input() book!: BookCard;
   // booksData: any;
   // async ngOnInit() {
   //   this.booksData = this.service.getBooks();

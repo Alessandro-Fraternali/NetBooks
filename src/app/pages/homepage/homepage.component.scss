@@ -1,12 +1,15 @@
-// .book-cards-wrapper{
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     gap: 20px;
+.book-cards-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 95%;
+    margin: auto;
+    gap: 20px;
 
-//     ::ng-deep{
-//         app-book-card{
-//             border: 1px solid red;
-//         }
-//     }
-// }
+    @media screen and (min-width: 550px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 1200px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
