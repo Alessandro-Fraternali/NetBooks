@@ -4,12 +4,14 @@
   Search
 </button>
 
+<a href="/book">Book page</a>
+
 <div class="book-cards-wrapper">
-  <!-- <app-book-card *ngFor="let book of booksData.results.books" [book]="book">
-  </app-book-card> -->
+  <app-book-card *ngFor="let book of booksData.results.books" [book]="book">
+  </app-book-card>
 </div>
 
 <app-housing-location
-  *ngFor="let housingLocation of filteredLocationList"
-  [housingLocation]="housingLocation"
+  *ngFor="let bookCard of filteredBookCard"
+  [bookCard]="bookCard"
 ></app-housing-location>

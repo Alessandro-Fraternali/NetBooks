@@ -1,0 +1,7 @@
+@mixin text-center-left {
+    text-align: center;
+    
+    @media screen and (min-width: 850px) {
+        text-align: left;
+    }
+}

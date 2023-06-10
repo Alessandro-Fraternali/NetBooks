@@ -6,12 +6,6 @@ export interface InjectedEstaliaBlockComponent {
   OnInjected(): void;
 }
 
-export interface InjectedEstaliaBlockComponent {
-  data: any;
-  changed: EventEmitter<any>;
-  OnInjected(): void;
-}
-
 export interface BookCard {
   type: 'book-card';
   book: {
@@ -21,4 +15,4 @@ export interface BookCard {
   };
 }
 
-export type EstaliaBlock = BookCard;
+export type NetTomeBlock = BookCard;

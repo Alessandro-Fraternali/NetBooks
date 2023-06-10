@@ -9,15 +9,7 @@ import { BestSellersHistoryService } from 'src/app/services/best-sellers-history
 })
 export class BookCardComponent {
   @Input() book!: BookCard;
-  // booksData: any;
-  // async ngOnInit() {
-  //   this.booksData = this.service.getBooks();
-  //   console.log('LIBRI' + this.booksData);
-  // }
-  // constructor(private service: BestSellersHistoryService) {}
-
   booksData;
-  // book;
   isLoaded = true;
   constructor(private _myservice: BestSellersHistoryService) {}
   async ngOnInit(): Promise<void> {

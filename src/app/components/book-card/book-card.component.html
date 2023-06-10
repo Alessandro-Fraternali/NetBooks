@@ -1,8 +1,9 @@
-<a [href]="book.title" class="book-card-container">
-  <img [src]="book.book_image" [alt]="book.title" />
-  <div class="book-info">
-    book card
-    <h2 class="book-card-title">{{ book.title }}</h2>
-    <p class="book-card-description">{{ book.description }}</p>
+<a routerLink="/book/{{ book.rank }}" class="book-card-container">
+  <div class="book-card">
+    <img [src]="book.book_image" [alt]="book.title" />
+    <div class="book-info">
+      <h2 class="book-card-title">{{ book.title }}</h2>
+      <p class="book-card-description">{{ book.description }}</p>
+    </div>
   </div>
 </a>
