@@ -1,4 +1,9 @@
-<a routerLink="/book/{{ result.id }}" class="book-card-container">
+<a
+  data-aos="fade-up"
+  data-aos-duration="1000"
+  routerLink="/book/{{ result.id }}"
+  class="book-card-container"
+>
   <div class="book-card">
     <img
       *ngIf="result.imageLinks"

@@ -1,14 +1,17 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import { BookCard } from 'src/app/interfaces/blocks.interface';
+import { Component, OnInit } from '@angular/core';
 import { BookModel } from 'src/app/models/book-model.model';
-
+import AOS from 'aos';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss'],
 })
-export class HomepageComponent {
+export class HomepageComponent implements OnInit {
   results!: BookModel[];
+
+  ngOnInit() {
+    AOS.init();
+  }
 
   updateBooks(results: BookModel[]): void {
     this.results = results;

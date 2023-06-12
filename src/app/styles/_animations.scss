@@ -1,18 +1,18 @@
 @keyframes origami {
     0% {
-        left: 0;
+        right: -20px;
         bottom: 0;
     }
     
     50% {
         transform: rotate(360deg);
-        left: 5%;
-        bottom: 2%;
+        right: 5%;
+        bottom: 3%;
     }
 
     100% {
         transform: translateX(0%);
-        left: 5px;
+        right: 5px;
         bottom: 5px;
     }
 }

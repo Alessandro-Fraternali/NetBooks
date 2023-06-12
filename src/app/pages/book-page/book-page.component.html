@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="product-page-container" *ngFor="let book of productData.items">
-  <div class="product-image">
+  <div data-aos="fade-right" data-aos-duration="1000" class="product-image">
     <img
       *ngIf="book.volumeInfo.imageLinks.thumbnail"
       [src]="book.volumeInfo.imageLinks.thumbnail"
@@ -18,7 +18,7 @@
       18+
     </div>
   </div>
-  <div class="product-info">
+  <div data-aos="fade-left" data-aos-duration="1000" class="product-info">
     <h1 class="product-title">{{ book.volumeInfo.title }}</h1>
     <p class="product-credits">
       <span *ngFor="let author of book.volumeInfo.authors"
