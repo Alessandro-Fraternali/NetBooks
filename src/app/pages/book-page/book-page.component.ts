@@ -12,6 +12,7 @@ export class BookPageComponent implements OnInit {
   @Input()
   result!: BookModel;
   productID!: string | null;
+  productTitle!: string | null;
   productData: any;
 
   constructor(
@@ -23,13 +24,16 @@ export class BookPageComponent implements OnInit {
     AOS.init();
     // mi salvo l'id del libro cliccato in productID
     this.productID = this.activatedRoute.snapshot.paramMap.get('id');
+    // mi salvo il title del libro cliccato in productTitle
+    this.productTitle = this.activatedRoute.snapshot.paramMap.get('title');
 
-    // Uso productID per filtrare la ricerca
-    // todo alcuni libri hanno lo stesso id, serve un secondo parametro
+    // Uso productID e productTitle per filtrare la ricerca e non avere risultati multipli
     this.http
       .get(
         'https://www.googleapis.com/books/v1/volumes?q=' +
           this.productID +
+          '%20' +
+          this.productTitle +
           '&key=AIzaSyCLF19wOMvXpP4hz7Ip4QGhTV28qj_Rdt0'
       )
       .subscribe((data) => {

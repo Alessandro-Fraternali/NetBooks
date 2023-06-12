@@ -20,11 +20,14 @@
   </div>
   <div data-aos="fade-left" data-aos-duration="1000" class="product-info">
     <h1 class="product-title">{{ book.volumeInfo.title }}</h1>
+    <h3 *ngIf="book.volumeInfo.subtitle" class="product-title">
+      {{ book.volumeInfo.subtitle }}
+    </h3>
     <p class="product-credits">
-      <span *ngFor="let author of book.volumeInfo.authors"
-        >{{ author }} -
-      </span>
-      <span>{{ book.volumeInfo.publishedDate }}</span>
+      <strong *ngFor="let author of book.volumeInfo.authors"
+        >{{ author }}
+      </strong>
+      <span> - {{ book.volumeInfo.publishedDate }}</span>
       <br /><br />
       <span *ngIf="book.volumeInfo.publisher"
         >Pubblicato da {{ book.volumeInfo.publisher }}</span
