@@ -9,6 +9,7 @@ import { BookPageComponent } from './pages/book-page/book-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     BookPageComponent,
     HeaderComponent,
     SearchBarComponent,
+    ErrorPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

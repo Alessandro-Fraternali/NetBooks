@@ -1,6 +1,11 @@
 <app-header></app-header>
 <div class="product-page-container" *ngFor="let book of productData.items">
-  <div data-aos="fade-right" data-aos-duration="1000" class="product-image">
+  <div
+    data-aos="fade-right"
+    data-aos-duration="1000"
+    once
+    class="product-image"
+  >
     <img
       *ngIf="book.volumeInfo.imageLinks.thumbnail"
       [src]="book.volumeInfo.imageLinks.thumbnail"
@@ -18,9 +23,9 @@
       18+
     </div>
   </div>
-  <div data-aos="fade-left" data-aos-duration="1000" class="product-info">
+  <div data-aos="fade-left" data-aos-duration="1000" once class="product-info">
     <h1 class="product-title">{{ book.volumeInfo.title }}</h1>
-    <h3 *ngIf="book.volumeInfo.subtitle" class="product-title">
+    <h3 *ngIf="book.volumeInfo.subtitle" class="product-subtitle">
       {{ book.volumeInfo.subtitle }}
     </h3>
     <p class="product-credits">

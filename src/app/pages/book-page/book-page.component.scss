@@ -42,10 +42,17 @@
     flex-direction: column;
 
     .product-title{
-        margin-bottom: 15px;
+        // margin-bottom: 15px;
         margin-top: 10px;
         @include text-center-left;
     }
+    
+    .product-subtitle{
+        margin-top: 0;
+        margin-bottom: 10px;
+        @include text-center-left;
+    }
+
     .product-credits{
         margin-bottom: 30px;
         @include text-center-left;
@@ -67,18 +74,22 @@
         justify-content: space-evenly;
         align-items: center;
         width: auto;
+        flex-direction: column;
+        gap: 20px;
         
         @include on-tablet {
+            flex-direction: row;
+            gap: 0;
             min-width: 500px;
             height: 50px;
         }
 
         .product-link-button{
-            width: -webkit-fill-available;
             height: 50px;
             
             
             @include on-tablet{
+                width: -webkit-fill-available;
                 width: 170px;
                 height: 100%;
             }

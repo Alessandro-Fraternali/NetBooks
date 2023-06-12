@@ -6,7 +6,13 @@ input{
     color: var(--color-light);
     font-size: 20px;
 
+    
     &:focus {
         outline: none;
     }
+}
+
+input::placeholder {
+    color: var(--color-light);
+    opacity: 0.8;
 }
