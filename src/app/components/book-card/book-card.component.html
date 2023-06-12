@@ -1,9 +1,22 @@
-<a routerLink="/book/{{ book.rank }}" class="book-card-container">
+<a routerLink="/book/{{ result.id }}" class="book-card-container">
   <div class="book-card">
-    <img [src]="book.book_image" [alt]="book.title" />
+    <img
+      *ngIf="result.imageLinks"
+      [src]="result.imageLinks"
+      [alt]="result.title"
+    />
+    <img
+      *ngIf="!result.imageLinks"
+      src="../../../assets/images/work-in-progress.jpg"
+      [alt]="result.title"
+    />
     <div class="book-info">
-      <h2 class="book-card-title">{{ book.title }}</h2>
-      <p class="book-card-description">{{ book.description }}</p>
+      <h2 class="book-card-title">{{ result.title }}</h2>
+      <p>{{ result.authors }}</p>
+      <div class="book-maturity-box" *ngIf="result.maturityRating == 'MATURE'">
+        18+
+      </div>
+      <p class="book-card-description">{{ result.description }}</p>
     </div>
   </div>
 </a>

@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { BookCard } from 'src/app/interfaces/blocks.interface';
-import { BestSellersHistoryService } from 'src/app/services/best-sellers-history.service';
-// import { HousingService } from 'src/app/services/housing.service';
+import { BookModel } from 'src/app/models/book-model.model';
 
 @Component({
   selector: 'app-homepage',
@@ -9,39 +8,9 @@ import { BestSellersHistoryService } from 'src/app/services/best-sellers-history
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent {
-  booksData;
-  isLoaded = true;
-  bookCardList: BookCard[] = [];
-  bestSellerHistoryService: BestSellersHistoryService = inject(
-    BestSellersHistoryService
-  );
-  filteredBookCard: BookCard[] = [];
+  results!: BookModel[];
 
-  constructor(private _myservice: BestSellersHistoryService) {
-    this.bookCardList = this.bestSellerHistoryService.getAllBookCards();
-    console.log(this.bookCardList);
-    this.filteredBookCard = this.bookCardList;
-  }
-
-  filterResults(text: string) {
-    if (!text) {
-      this.filteredBookCard = this.bookCardList;
-    } else {
-      this.filteredBookCard = this.bookCardList.filter((bookCard) =>
-        bookCard?.book.title.toLowerCase().includes(text.toLowerCase())
-      );
-    }
-  }
-
-  ngOnInit() {
-    this.isLoaded = true;
-    this._myservice.getBooks().subscribe(
-      (data) => {
-        (this.booksData = data), console.log(this.booksData);
-        console.log('culo');
-        this.isLoaded = false;
-      },
-      (error) => console.log('err')
-    );
+  updateBooks(results: BookModel[]): void {
+    this.results = results;
   }
 }

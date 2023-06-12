@@ -1,41 +1,39 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BookModel } from 'src/app/models/book-model.model';
 
 @Component({
   selector: 'app-book-page',
   templateUrl: './book-page.component.html',
   styleUrls: ['./book-page.component.scss'],
 })
-export class BookPageComponent {
-  bookRank!: string | null;
-  bookData: any;
-  jsonResults: any;
-  chosenBook: any;
-  arrayBooks: [];
+export class BookPageComponent implements OnInit {
+  @Input()
+  result!: BookModel;
+  productID!: string | null;
+  productData: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private _http: HttpClient
+    private http: HttpClient
   ) {}
 
-  ngOnInit() {
-    this.bookRank = this.activatedRoute.snapshot.paramMap.get('rank');
-    this.arrayBooks = this.getBooks().subscribe((val) =>
-      console.log('1' + val.results.books)
-    );
-    console.log(this.arrayBooks);
-  }
+  ngOnInit(): void {
+    // mi salvo l'id del libro cliccato in productID
+    this.productID = this.activatedRoute.snapshot.paramMap.get('id');
 
-  // val.results.book in una variabile arrayBooks
-  // ciclare arrayBooks e ad ogni ciclo per ogni libro controlla book.rank
-  // se book.rank è uguale a quello cliccato salva book in chosenBook
-
-  getBooks() {
-    this.jsonResults = this._http.get(
-      'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=N7nfrHYJqsu2xo5L3YpvhAc7ykkMm5Yp'
-    );
-
-    return this.jsonResults;
+    // Uso productID per filtrare la ricerca
+    // todo alcuni libri hanno lo stesso id, serve un secondo parametro
+    this.http
+      .get(
+        'https://www.googleapis.com/books/v1/volumes?q=' +
+          this.productID +
+          '&key=AIzaSyCLF19wOMvXpP4hz7Ip4QGhTV28qj_Rdt0'
+      )
+      .subscribe((data) => {
+        this.productData = data;
+        console.log(this.productData);
+      });
   }
 }

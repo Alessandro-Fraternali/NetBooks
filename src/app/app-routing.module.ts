@@ -6,7 +6,7 @@ import { BookPageComponent } from './pages/book-page/book-page.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent },
-  { path: 'book/:rank', component: BookPageComponent },
+  { path: 'book/:id', component: BookPageComponent },
   { path: '**', component: HomepageComponent },
 ];
 

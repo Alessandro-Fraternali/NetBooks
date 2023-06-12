@@ -1,16 +1,28 @@
 header{
-    background-color: cornflowerblue;
-    height: 50px; //pory
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 80px;
     width: 100%;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
+
+    @media screen and (min-width: 850px){
+        justify-content: flex-start;
+    }
 
     .logo-container{
         height: 100%;
+        margin-top: 20px;
+        margin-left: 0px;
+        
+        @media screen and (min-width: 850px){
+            margin-left: 20px;
+        }
 
         img{
-            height: 90%;
+            height: 75%;
+            filter: brightness(5);
         }
     }
 }

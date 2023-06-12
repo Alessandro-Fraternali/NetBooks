@@ -1,11 +1,3 @@
-import { EventEmitter } from '@angular/core';
-
-export interface InjectedEstaliaBlockComponent {
-  data: any;
-  changed: EventEmitter<any>;
-  OnInjected(): void;
-}
-
 export interface BookCard {
   type: 'book-card';
   book: {
@@ -14,5 +6,3 @@ export interface BookCard {
     description: string;
   };
 }
-
-export type NetTomeBlock = BookCard;

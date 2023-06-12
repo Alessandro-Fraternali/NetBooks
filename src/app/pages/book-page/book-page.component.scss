@@ -2,21 +2,39 @@
 
 .product-page-container{
     padding: 10%;
-    padding-top: 50px;
+    padding-top: 120px;
+    background-repeat: no-repeat;
+    background-color: #E4E4E4;
+    background-size: contain;
     
     @media screen and (min-width: 850px) {
         display: grid;
         gap: 50px;
-        height: calc(100vh - 100px); //pory
+        height: 100vh; //pory
         padding: 0;
-        padding-top: 50px;
+        padding-top: 120px;
         grid-template-columns: 1fr 2fr 5fr 1fr 1fr;
+        grid-template-rows: auto 1fr;
     }
  .product-image{
-        height: inherit;
         grid-column: 2;
+        position: relative;
     img{
         width: 100%;
+    }
+    .book-maturity-box {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+        background-color: red; //pory
+        color: white; //pory
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        border-radius: 100%;
+        bottom: -10px;
+        right: -10px;
     }
  }
  .product-info{
@@ -24,7 +42,7 @@
     flex-direction: column;
 
     .product-title{
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         margin-top: 10px;
         @include text-center-left;
 
@@ -35,19 +53,20 @@
     .product-credits{
         margin-bottom: 30px;
         @include text-center-left;
+        span{
+            margin-bottom: 100px;
+        }
         
         @media screen and (min-width: 850px){
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
     }
     .product-description{
         line-height: 1.4;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 
-    .product-links{
-        height: 50px;
-        background-color: coral; //pory
+    .product-links {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -55,11 +74,108 @@
         bottom: 0;
         left: 0;
         width: 100vw;
-
-        @media screen and (min-width: 850px){
+        background-color: black;
+        box-shadow: 0px -12px 20px -4px rgba(0, 0, 0, 0.75);
+        
+        @media screen and (min-width: 850px) {
             position: relative;
             width: auto;
+            min-width: 500px;
+            height: 50px;
+            box-shadow: none;
+            background-color: transparent;
+        }
+
+        .product-link-button{
+            width: -webkit-fill-available;
+            height: 50px;
+            
+            
+            @media screen and (min-width: 850px){
+                width: 200px;
+                height: 100%;
+            }
+
+            a{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                font-weight: bold;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .preview-button{
+            border: 2px solid #dd4b39;
+            border-radius: 10px;
+            transition: 0.7s;
+            background-color: white;
+
+            @media screen and (min-width: 850px){
+                background-color: transparent;
+            }
+
+            &:hover{
+                background-color: #dd4b39;
+                border-color: white;
+
+                @media screen and (min-width: 850px) {
+                    border-color: transparent;
+                }
+
+                a{
+                    color: white;
+                }
+            }
+            
+            a{
+                color: #dd4b39;
+                text-decoration: none;
+            }
+            
         }
     }
  }
+}
+
+.origami{
+    height: 80px;
+    width: 80px;
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    animation: moveBus 5s ease-in-out forwards;
+    background-image: url('../../../assets/images/origami.png');
+    background-size: contain;
+    opacity: 0.8;
+    display: none;
+
+    @media screen and (min-width: 850px){
+        display: block;
+    }
+}
+
+@keyframes moveBus {
+    0% {
+        transform: translateX(0);
+        transform: rotate(180deg);
+        left: 0;
+        top: 30%;
+    }
+    
+    60% {
+        transform: translateX(100%);
+        left : 10%;
+        top: 91%;
+    }
+    
+    100% {
+        transform: translateX(0%);
+        left: 10px;
+        transform: rotate(0deg);
+    }
 }

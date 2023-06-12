@@ -1,17 +1,21 @@
 <app-header></app-header>
-<input type="text" placeholder="Filter by city" #filter />
-<button class="primary" type="button" (click)="filterResults(filter.value)">
-  Search
-</button>
+<div class="homepage-container">
+  <video
+    loop
+    muted
+    autoplay
+    oncanplay="this.play()"
+    onloadedmetadata="this.muted = true"
+  >
+    <source src="../../../assets/lofi.mp4" type="video/mp4" />
+  </video>
 
-<a href="/book">Book page</a>
+  <h1 class="homepage-title">QUALE LIBRO STAI CERCANDO?</h1>
 
-<div class="book-cards-wrapper">
-  <app-book-card *ngFor="let book of booksData.results.books" [book]="book">
-  </app-book-card>
+  <app-search-bar (results)="updateBooks($event)"></app-search-bar>
+
+  <div class="book-cards-wrapper">
+    <app-book-card *ngFor="let result of results" [result]="result">
+    </app-book-card>
+  </div>
 </div>
-
-<app-housing-location
-  *ngFor="let bookCard of filteredBookCard"
-  [bookCard]="bookCard"
-></app-housing-location>

@@ -1,32 +1,56 @@
 <app-header></app-header>
-<div class="product-page-container">
+<div class="product-page-container" *ngFor="let book of productData.items">
   <div class="product-image">
-    <!-- <img src="https://halo.wiki.gallery/images/f/f4/Halocole.png" alt="" /> -->
-    <img [src]="" alt="" />
+    <img
+      *ngIf="book.volumeInfo.imageLinks.thumbnail"
+      [src]="book.volumeInfo.imageLinks.thumbnail"
+      alt=""
+    />
+    <img
+      *ngIf="!book.volumeInfo.imageLinks.thumbnail"
+      [src]="book.volumeInfo.imageLinks.thumbnail"
+      alt=""
+    />
+    <div
+      class="book-maturity-box"
+      *ngIf="book.volumeInfo.maturityRating == 'MATURE'"
+    >
+      18+
+    </div>
   </div>
   <div class="product-info">
-    <!-- <h1 class="product-title">Halo: The Cole Protocol</h1> -->
-    <!-- <h1>{{ bookData.primary_isbn10 }}</h1> -->
+    <h1 class="product-title">{{ book.volumeInfo.title }}</h1>
     <p class="product-credits">
-      Tobias S. Buckell - Tor Books; Reprint edition
+      <span *ngFor="let author of book.volumeInfo.authors"
+        >{{ author }} -
+      </span>
+      <span>{{ book.volumeInfo.publishedDate }}</span>
+      <br /><br />
+      <span *ngIf="book.volumeInfo.publisher"
+        >Pubblicato da {{ book.volumeInfo.publisher }}</span
+      >
     </p>
     <p class="product-description">
-      In the first, desperate days of the Human-Covenant War, the UNSC has
-      enacted the Cole Protocol to safeguard Earth and its inner colonies from
-      discovery by a merciless alien foe. Many are called upon to rid the
-      universe of lingering navigation data that would reveal the location of
-      Earth. Among them is Navy Lieutenant Jacob Keyes. Thrust back into action
-      after being sidelined, Keyes is saddled with a top secret mission by ONI.
-      One that will take him deep behind enemy lines, to a corner of the
-      universe where nothing is as it seems.
+      {{ book.volumeInfo.description }}
     </p>
     <div class="product-links">
-      <a href="/">Amazon</a>
-      <a href="/">Apple Books</a>
-      <a href="/">Barnes and Noble</a>
-      <a href="/">Books-A-Million</a>
-      <a href="/">Bookshop</a>
-      <a href="/">IndieBound</a>
+      <div
+        *ngIf="book.volumeInfo.previewLink"
+        class="preview-button product-link-button"
+      >
+        <a [href]="book.volumeInfo.previewLink" target="_blank"
+          >LEGGI L'ANTEPRIMA</a
+        >
+      </div>
+      <div
+        *ngIf="book.volumeInfo.infoLink"
+        class="info-button product-link-button"
+      >
+        <a [href]="book.volumeInfo.infoLink" target="_blank">
+          <img src="../../../assets/images/googleplay.png" alt="" />
+        </a>
+      </div>
     </div>
   </div>
 </div>
+<div class="origami"></div>

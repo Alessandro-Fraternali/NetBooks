@@ -1,25 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { BookCard } from 'src/app/interfaces/housinglocation';
-import { BestSellersHistoryService } from 'src/app/services/best-sellers-history.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { BookModel } from 'src/app/models/book-model.model';
 
 @Component({
   selector: 'app-book-card',
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss'],
 })
-export class BookCardComponent {
-  @Input() book!: BookCard;
-  booksData;
-  isLoaded = true;
-  constructor(private _myservice: BestSellersHistoryService) {}
-  async ngOnInit(): Promise<void> {
-    this.isLoaded = true;
-    (await this._myservice.getBooks()).subscribe(
-      (data) => {
-        (this.booksData = data), console.log(this.booksData);
-        this.isLoaded = false;
-      },
-      (error) => console.log('err')
-    );
-  }
+export class BookCardComponent implements OnInit {
+  @Input()
+  result!: BookModel;
+  constructor() {}
+  ngOnInit(): void {}
 }

@@ -1,0 +1,11 @@
+input{
+    height: 30px;
+    padding-left: 5px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+
+    &:focus {
+        outline: none;
+    }
+}
