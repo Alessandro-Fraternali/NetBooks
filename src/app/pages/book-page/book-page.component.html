@@ -38,9 +38,9 @@
         *ngIf="book.volumeInfo.previewLink"
         class="preview-button product-link-button"
       >
-        <a [href]="book.volumeInfo.previewLink" target="_blank"
-          >LEGGI L'ANTEPRIMA</a
-        >
+        <a [href]="book.volumeInfo.previewLink" target="_blank">
+          <img src="../../../assets/images/googleplaybooks.png" alt="" />
+        </a>
       </div>
       <div
         *ngIf="book.volumeInfo.infoLink"

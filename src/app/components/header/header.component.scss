@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 header{
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
@@ -7,7 +9,7 @@ header{
     align-items: center;
     justify-content: center;
 
-    @media screen and (min-width: 850px){
+    @include on-tablet{
         justify-content: flex-start;
     }
 
@@ -16,7 +18,7 @@ header{
         margin-top: 20px;
         margin-left: 0px;
         
-        @media screen and (min-width: 850px){
+        @include on-tablet{
             margin-left: 20px;
         }
 

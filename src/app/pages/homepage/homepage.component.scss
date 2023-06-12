@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&family=Oswald:wght@400;700&display=swap');
+@import '../../../styles.scss';
 
 .homepage-container{
     position: relative;
@@ -18,13 +18,13 @@
     }
 
     .homepage-title{
-        color: white;
+        color: var(--color-light);
         text-align: center;
         margin-top: 100px;
         font-size: 20px;
         font-family: 'M PLUS Rounded 1c', sans-serif;
         
-        @media screen and (min-width: 850px){
+        @include on-tablet{
             margin-top: 20px;
             font-size: 32px;
         }
@@ -36,7 +36,7 @@
         margin-bottom: 20px;
         width: 80%;
         
-        @media screen and (min-width: 850px){
+        @include on-tablet{
             margin-top: 40px;
         }
     }
@@ -49,11 +49,11 @@
         gap: 50px;
         overflow-y: scroll;
 
-        @media screen and (min-width: 550px) {
+        @include on-tablet {
             grid-template-columns: repeat(3, 1fr);
         }
 
-        @media screen and (min-width: 1200px) {
+        @include on-desktop {
             grid-template-columns: repeat(5, 1fr);
         }
     }

@@ -26,8 +26,8 @@
             top: 0;
             left: 0;
             height: 100%;
-            color: white; //pory
-            background-color: black; //pory
+            color: var(--color-light); //pory
+            background-color: var(--color-dark); //pory
             width: 100%;
 
             .book-card-title{
@@ -46,8 +46,8 @@
                 width: 60px;
                 height: 60px;
                 font-size: 28px;
-                background-color: red; //pory
-                color: white; //pory
+                background-color: var(--color-accent);
+                color: var(--color-light);
                 border-radius: 100%;
                 display: flex;
                 justify-content: center;

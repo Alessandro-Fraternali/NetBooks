@@ -1,6 +1,6 @@
 @mixin text-center-left {
     text-align: center;
-    
+
     @include on-tablet {
         text-align: left;
     }
