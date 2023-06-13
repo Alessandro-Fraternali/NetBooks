@@ -1,7 +1,4 @@
 <a
-  data-aos="fade-up"
-  once
-  data-aos-duration="1000"
   routerLink="/book/{{ result.id }}/{{ result.title }}"
   class="book-card-container"
 >
@@ -21,7 +18,7 @@
       <h2 class="book-card-title">{{ result.title }}</h2>
       <p>{{ result.authors }}</p>
       <div class="book-maturity-box" *ngIf="result.maturityRating == 'MATURE'">
-        18+
+        18
       </div>
       <p class="book-card-description">{{ result.description }}</p>
     </div>
