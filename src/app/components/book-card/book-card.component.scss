@@ -5,7 +5,7 @@
     position: relative;
     height: 100%;
     display: grid;
-    animation: card 1s ease-in-out forwards;
+    animation: slide-up 1s ease-in-out forwards;
     opacity: 0;
 
     .book-card{

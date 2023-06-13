@@ -19,6 +19,8 @@
  .product-image{
         grid-column: 2;
         position: relative;
+        animation: slide-right 1s ease-in-out forwards;
+        opacity: 0;
     img{
         width: 100%;
     }
@@ -40,6 +42,9 @@
  .product-info{
     display: flex;
     flex-direction: column;
+    animation: slide-left 1s ease-in-out forwards;
+    position: relative;
+    opacity: 0;
 
     .product-title{
         // margin-bottom: 15px;
@@ -65,7 +70,7 @@
         }
     }
     .product-description{
-        line-height: 1.4;
+        line-height: 1.8;
         margin-bottom: 30px;
     }
 
@@ -76,6 +81,8 @@
         width: auto;
         flex-direction: column;
         gap: 20px;
+        position: relative;
+        animation: slide-up 2s ease-in-out forwards;
         
         @include on-tablet {
             flex-direction: row;
@@ -86,6 +93,7 @@
 
         .product-link-button{
             height: 50px;
+            width: 180px;
             
             
             @include on-tablet{

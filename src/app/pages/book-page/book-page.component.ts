@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookModel } from 'src/app/models/book-model.model';
-import AOS from 'aos';
 @Component({
   selector: 'app-book-page',
   templateUrl: './book-page.component.html',
@@ -21,7 +20,6 @@ export class BookPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    AOS.init();
     // mi salvo l'id del libro cliccato in productID
     this.productID = this.activatedRoute.snapshot.paramMap.get('id');
     // mi salvo il title del libro cliccato in productTitle
