@@ -1,8 +1,12 @@
+@import '../../../styles.scss';
+
 .book-card-container{
     min-width: -webkit-fill-available;
     position: relative;
     height: 100%;
     display: grid;
+    animation: card 1s ease-in-out forwards;
+    opacity: 0;
 
     .book-card{
         &:hover{
