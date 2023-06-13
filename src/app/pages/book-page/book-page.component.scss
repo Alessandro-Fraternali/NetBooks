@@ -19,9 +19,14 @@
  .product-image{
         grid-column: 2;
         position: relative;
-        animation: slide-right 1s ease-in-out forwards;
+        animation: slide-up 1s ease-in-out forwards;
         opacity: 0;
-    img{
+        
+        @include on-tablet{
+            animation: slide-right 1s ease-in-out forwards;
+        }
+
+        img{
         width: 100%;
     }
     .book-maturity-box {
@@ -42,9 +47,13 @@
  .product-info{
     display: flex;
     flex-direction: column;
-    animation: slide-left 1s ease-in-out forwards;
+    animation: slide-up 1s ease-in-out forwards;
     position: relative;
     opacity: 0;
+    
+    @include on-tablet{
+        animation: slide-left 1s ease-in-out forwards;
+    }
 
     .product-title{
         // margin-bottom: 15px;
