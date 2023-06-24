@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-
 import { Observable } from 'rxjs';
 import { BookModel } from '../models/book-model.model';
-
-const BOOK_API_URL = 'https://www.googleapis.com/books/v1/volumes';
 
 @Injectable({
   providedIn: 'root',
@@ -13,16 +10,20 @@ const BOOK_API_URL = 'https://www.googleapis.com/books/v1/volumes';
 export class GoogleBooksService {
   constructor(private http: HttpClient) {}
 
-  // creo un'array dell'oggetto BookModel
+  // dichiaro il metodo search in cui passo la stringa che l'utente scrive nella searchbar
+  // che mi ritorna un array di BookModel
   search(query: string): Observable<BookModel[]> {
+    //creo una costante chiamata params da usare per filtrare la ricerca
+    const BOOK_API_URL = 'https://www.googleapis.com/books/v1/volumes';
     const params: string = `q=${query}`;
-
     const queryUrl = `${BOOK_API_URL}?${params}`;
 
+    // interface
     return this.http.get<any>(queryUrl).pipe(
+      // mappo il risultato per prendere response
       map((response) => {
+        // mappo response per prendere il singolo item
         return response['items'].map(
-          //dichiaro cosa voglio prendere con la get
           (item: {
             volumeInfo: {
               title: any;

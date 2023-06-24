@@ -26,17 +26,19 @@ export class SearchBarComponent implements OnInit {
       .pipe(
         // prendo quello che viene scritto nell'input
         map((e: any) => e.target.value),
-        // uso quello scritto nell'input per filtrare
+        // se non c'è niente smette di filtrare
         filter((text) => text.length > 1),
         // sovrascrivi i vecchi risultati
         map((query: string) => this.book.search(query)),
+        //
         switchAll()
       )
       // manda in pagina i risultati finali
       .subscribe(
-        (_results) => {
-          this.results.emit(_results);
-          console.log(_results);
+        (results) => {
+          // emetto l'evento results
+          this.results.emit(results);
+          console.log(results);
         },
         (err) => {
           console.log(err);
